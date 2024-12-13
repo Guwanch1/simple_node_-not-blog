@@ -1,0 +1,28 @@
+<%- include('partitions/header.ejs'); %>
+
+    <% posts.forEach(post => { %>
+        <div class="container m-5 border mx-auto" style="min-height: 150px;">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-9 text-center  border-bottom"><%= post.title %></div>
+                <div class="col-2 text-center border-left  border-bottom"><%= post.author %></div>
+            </div>
+            <div class="row align-items-center justify-content-center pt-3">
+                <div class="col-11">
+                    <p class="text-start">
+                        <%= post.body %>
+                    </p>
+                </div>
+            </div>
+            <div class="row align-items-end justify-content-end">
+                <div class="col-9"></div>
+                <div class="col-1">
+                     <a href="/editpost?id=<%= post.id %>"><i class="bi-pencil-square inline"></i></a>
+                </div>
+                <div class="col-1">
+                    <a href="/deletepost?id=<%= post.id %>"><i class="bi-trash inline"></i></a>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+
+<%- include('partitions/footer.ejs'); %>
